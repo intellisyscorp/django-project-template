@@ -6,13 +6,13 @@ from rest_framework_jwt.views import verify_jwt_token, refresh_jwt_token
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Fitzme Account Service Documents",
+        title="Fitzme {{ project_name }} Service Documents",
         default_version='v1',
         description="""
-        Fitzme Account Service입니다. 사용 가능한 Account Service API를 탐색하고 테스트할 수 있습니다.
+        Fitzme {{ project_name }} Service입니다. 사용 가능한 {{ project_name }} Service API를 탐색하고 테스트할 수 있습니다.
         """,
         contact=openapi.Contact(
-            name="IDS Lab.",
+            name="Intellisys Co., Ltd.",
             url="http://intellisys.co.kr",
             email="intellisys@intellisys.co.kr"
         ),
