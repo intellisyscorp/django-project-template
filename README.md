@@ -8,7 +8,7 @@ django-admin startproject \
 ```
 
 ## Includes
-- OWNSERS 정보
+- OWNERS 정보
 - Swagger 연동
 - v1 엔드포인트까지 자동 생성
 - health check 엔드포인트까지 생성
