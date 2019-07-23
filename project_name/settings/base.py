@@ -24,7 +24,7 @@ SECRET_KEY = 'h$ogkt$=@3v*r=(=-9u@52=ou^y69-y%=gk$zfuo8v*0mxcc@5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
