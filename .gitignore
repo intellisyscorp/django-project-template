@@ -105,3 +105,5 @@ ENV/
 
 # Custom
 db.sqlite3
+!logs/*.log
+!logs/*.log.*

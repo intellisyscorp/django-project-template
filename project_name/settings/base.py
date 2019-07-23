@@ -71,6 +71,37 @@ TEMPLATES = [
 
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
+# Logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s [%(levelname)8s][%(name)s:%(lineno)s] %(message)s'
+        },
+    },
+    'handlers': {
+        'file_default': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': '{}/logs/default.log'.format(os.getcwd()),
+            'maxBytes': 1 * 1024 * 1024,
+            'backupCount': 2,
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        }
+    },
+    # Define a logger for your handler.  We are using the root '' logger in this case
+    'loggers': {
+        '': {
+            'handlers': ['file_default', 'console'],
+            'level': 'DEBUG',
+            'propagate': True
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
