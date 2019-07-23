@@ -82,20 +82,22 @@ LOGGING = {
     },
     'handlers': {
         'file_default': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '{}/logs/default.log'.format(os.getcwd()),
-            'maxBytes': 1 * 1024 * 1024,
-            'backupCount': 2,
+            'filename': os.path.join(BASE_DIR, 'logs/default.log'),
+            'maxBytes': 10 * 1024 * 1024,
+            'backupCount': 10,
+            'formatter': 'standard',
         },
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
+            'formatter': 'standard',
         }
     },
     # Define a logger for your handler.  We are using the root '' logger in this case
     'loggers': {
-        '': {
+        'django': {
             'handlers': ['file_default', 'console'],
             'level': 'DEBUG',
             'propagate': True
