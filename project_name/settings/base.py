@@ -115,6 +115,10 @@ DATABASES = {
     }
 }
 
+# Swagger
+SWAGGER_SETTINGS = {
+     'USE_SESSION_AUTH': False,
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#auth-password-validators
