@@ -107,4 +107,6 @@ ENV/
 db.sqlite3
 logs/*
 !logs/.gitkeep
+static/*
+!static/.gitkeep
 
