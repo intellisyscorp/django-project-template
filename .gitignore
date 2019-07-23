@@ -105,4 +105,5 @@ ENV/
 
 # Custom
 db.sqlite3
+logs/*
 !logs/.gitkeep
