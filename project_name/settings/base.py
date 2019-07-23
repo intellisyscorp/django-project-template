@@ -98,7 +98,7 @@ LOGGING = {
     # Define a logger for your handler.  We are using the root '' logger in this case
     'loggers': {
         'django': {
-            'handlers': ['file_default', 'console'],
+            'handlers': ['file_default'],
             'level': 'DEBUG',
             'propagate': True
         },
