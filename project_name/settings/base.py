@@ -159,3 +159,9 @@ USE_TZ = True
 STATIC_URL = 'https://cdn.fitzme.xyz/static/'
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+# Microservice urls
+MICROSERVICE_URLS = {
+
+}
