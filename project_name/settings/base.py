@@ -90,7 +90,7 @@ LOGGING = {
             'formatter': 'standard',
         },
         'console': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
             'formatter': 'standard',
         }
@@ -98,7 +98,7 @@ LOGGING = {
     # Define a logger for your handler.  We are using the root '' logger in this case
     'loggers': {
         'django': {
-            'handlers': ['file_default'],
+            'handlers': ['file_default', 'console'],
             'level': 'DEBUG',
             'propagate': True
         },
