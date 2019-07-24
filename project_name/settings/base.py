@@ -171,6 +171,6 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         'LOCATION': 'unique-snowflake',
-        'KEY_PREFIX': {{ project_name }}
+        'KEY_PREFIX': '{{ project_name }}'
     }
 }
