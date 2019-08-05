@@ -1,8 +1,9 @@
-from django.urls import path, include, re_path
-from drf_yasg.views import get_schema_view
+from django.urls import path, include
 from drf_yasg import openapi
+from drf_yasg.views import get_schema_view
 
-from app.views import health_check, index
+from app.views import index, health_check
+
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -19,12 +20,22 @@ schema_view = get_schema_view(
     ),
     public=True,
 )
+
 urlpatterns = [
+    # Health check
+    path('health/', health_check),
+
+    # Index
     path('', index, name='index'),
+
+    # From django auth
+    path('', include('django.contrib.auth.urls')),
+
+    # API Document
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger'),
     path('docs/', schema_view.with_ui('redoc', cache_timeout=0)),
 
-    path('health/', health_check),
+    # App
     path('resource/', include('app.views.resource.urls', namespace='resource')),
     path('v1/', include('app.views.v1.urls', namespace='v1')),
 ]

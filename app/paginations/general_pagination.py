@@ -1,6 +1,4 @@
-from rest_framework.pagination import CursorPagination, LimitOffsetPagination, _positive_int
-from rest_framework.response import Response
-from collections import OrderedDict
+from rest_framework.pagination import CursorPagination, LimitOffsetPagination
 
 
 class GeneralCursorPagination(CursorPagination):
@@ -12,4 +10,3 @@ class GeneralCursorPagination(CursorPagination):
 class GeneralLimitOffsetPagination(LimitOffsetPagination):
     limit_query_param = 'page_size'
     offset_query_param = 'offset'
-    
