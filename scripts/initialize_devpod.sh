@@ -12,11 +12,14 @@ pip install cython \
 
 ln -s /workspace ~/workspace
 
+echo "export DJANGO_SETTINGS_MODULE={{ project_name }}.settings.base" >> ~/.bashrc 
+echo "source ~/.bashrc"
+
 if test -z $DEVPOD_NAME
 then
     echo "This is not a devpod"
 else
-    PGPASSWORD=test psql --host develop-service-db -U test -c "DROP DATABASE \"$HOSTNAME\""
-    PGPASSWORD=test psql --host develop-service-db -U test -c "CREATE DATABASE \"$HOSTNAME\""
+    PGPASSWORD=test psql --host develop-service-db -U test -c "DROP DATABASE \"$HOSTNAME_{{ project_name }}\""
+    PGPASSWORD=test psql --host develop-service-db -U test -c "CREATE DATABASE \"$HOSTNAME_{{ project_name }}\""
     python manage.py migrate
 fi

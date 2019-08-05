@@ -1,0 +1,17 @@
+<!-- templates/fitzme/base.html -->
+{% extends 'admin/base_site.html' %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'index' %}">Fitzme</a></h1>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="{% url 'index' %}">Home</a>
+    |
+    <a href="{% url 'swagger' %}">Swagger</a>
+    |
+    <a href="{% url 'admin:index' %}">Admin</a>
+    |
+</div>
+{% endblock %}

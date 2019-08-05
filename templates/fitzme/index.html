@@ -1,0 +1,15 @@
+<!-- templates/fitzme/index.html -->
+{% extends 'fitzme/base.html' %}
+
+{% block title %}Fitzme Home{% endblock %}
+
+{% block content %}
+    <p>{{ user }}</p>
+    {% if user.is_authenticated %}
+    <p>
+        <a href="{% url 'password_change' %}">비밀번호 변경</a>
+        |
+        <a href="{% url 'logout' %}">로그아웃</a>
+    </p>
+    {% endif %}
+{% endblock %}
