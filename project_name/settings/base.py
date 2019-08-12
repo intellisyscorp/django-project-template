@@ -96,15 +96,21 @@ LOGGING = {
         },
         'console': {
             'level': 'INFO',
+            'level': 'DEBUG' if DEBUG else 'INFO',
             'class': 'logging.StreamHandler',
             'formatter': 'standard',
         }
     },
     # Define a logger for your handler.  We are using the root '' logger in this case
     'loggers': {
+        '': {
+            'handlers': ['console'],
+            'level': 'DEBUG' if DEBUG else 'INFO',
+            'propagate': True
+        },
         'django': {
             'handlers': ['file_default', 'console'],
-            'level': 'DEBUG',
+            'level': 'INFO',
             'propagate': True
         },
     },
