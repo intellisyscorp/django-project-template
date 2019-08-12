@@ -12,9 +12,6 @@ pip install cython \
 
 ln -s /workspace ~/workspace
 
-echo "export DJANGO_SETTINGS_MODULE={{ project_name }}.settings.base" >> ~/.bashrc 
-echo "source ~/.bashrc"
-
 if test -z "$DEVPOD_NAME"
 then
     echo "This is not a devpod"
