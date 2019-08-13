@@ -6,5 +6,4 @@ then
 else
     PGPASSWORD=test psql --host dev-db.jx-develop -U test -c "DROP DATABASE \"$HOSTNAME-{{ project_name }}\""
     PGPASSWORD=test psql --host dev-db.jx-develop -U test -c "CREATE DATABASE \"$HOSTNAME-{{ project_name }}\""
-    python manage.py migrate
 fi
