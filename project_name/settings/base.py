@@ -121,14 +121,11 @@ LOGGING = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': f'{os.environ["HOSTNAME"]}-{{ project_name }}',
-        'USER': 'test',
-        'PASSWORD': 'test',
-        'HOST': 'dev-db.jx-develop',
-        'PORT': ''
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db'
     }
 }
+
 
 # Django REST framework
 REST_FRAMEWORK = {
