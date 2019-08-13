@@ -37,5 +37,5 @@ urlpatterns = [
 
     # App
     path('resource/', include('app.views.resource.urls', namespace='resource')),
-    path('v1/', include('app.views.v1.urls', namespace='v1')),
+    path('mobile/v1/', include('app.views.v1.mobile.urls', namespace='mobile_v1')),
 ]

@@ -130,6 +130,7 @@ DATABASES = {
 # Django REST framework
 REST_FRAMEWORK = {
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
+    'USE_X_FORWARDED_HOST': True,
 }
 
 # Swagger
