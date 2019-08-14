@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'app.middlewares.overwrite_header',
     'app.middlewares.tx_management',
     'app.middlewares.user_management',
+    # 'app.middlewares.debug_middleware',
 ]
 
 ROOT_URLCONF = '{{ project_name }}.urls'
