@@ -1,5 +1,9 @@
 #Fill in dependencies here
+packaging
 django
+django_ses
+django-redis
+django-modeladmin-reorder
 djangorestframework==3.9.3
 packaging
 psycopg2-binary
