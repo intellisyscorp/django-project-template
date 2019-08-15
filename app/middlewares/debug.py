@@ -23,7 +23,7 @@ def debug_middleware(get_response):
         print(f'> # of Queries FINISH: {len(connection.queries)}')
 
         print('> Response Data')
-        pprint.pprint(dict(getattr(response, 'data', {})), indent=4)
+        pprint.pprint(dict(getattr(response, 'data', {}) or {}), indent=4)
 
         return response
     return middleware
