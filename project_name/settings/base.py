@@ -132,6 +132,7 @@ DATABASES = {
 # Django REST framework
 REST_FRAMEWORK = {
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
+    'NON_FIELD_ERRORS_KEY': 'errors',
     'USE_X_FORWARDED_HOST': True,
 }
 
