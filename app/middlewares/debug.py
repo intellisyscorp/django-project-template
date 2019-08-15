@@ -6,11 +6,11 @@ from django.db import connection
 
 def debug_middleware(get_response):
     def middleware(request):
-        print("[{}] {} | {} {}".format(
+        print("[{}] {} {} | {}".format(
             datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            request.user,
             request.method,
             request.get_full_path(),
+            getattr(request, 'user_id', None),
         ))
 
         print('> Request Headers')
