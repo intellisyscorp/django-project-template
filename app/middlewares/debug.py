@@ -13,17 +13,23 @@ def debug_middleware(get_response):
             getattr(request, 'user_id', None),
         ))
 
-        print('> Request Headers')
-        pprint.pprint(dict(request.headers), indent=4)
+        print('>>> Request Headers')
+        try:
+            pprint.pprint(dict(request.headers), indent=4)
+        except Exception as e:
+            print('\t' + str(e))
 
-        print(f'> # of Queries START: {len(connection.queries)}')
+        print(f'>>> # of Queries START: {len(connection.queries)}')
 
         response = get_response(request)
 
-        print(f'> # of Queries FINISH: {len(connection.queries)}')
+        print(f'>>> # of Queries FINISH: {len(connection.queries)}')
 
-        print('> Response Data')
-        pprint.pprint(dict(getattr(response, 'data', {}) or {}), indent=4)
+        print('>>> Response Data')
+        try:
+            pprint.pprint(dict(response.data), indent=4)
+        except Exception as e:
+            print('\t' + str(e))
 
         return response
     return middleware
