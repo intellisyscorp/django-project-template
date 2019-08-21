@@ -97,8 +97,7 @@ LOGGING = {
             'formatter': 'standard',
         },
         'console': {
-            'level': 'INFO',
-            'level': 'DEBUG' if DEBUG else 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'standard',
         }
@@ -107,7 +106,7 @@ LOGGING = {
     'loggers': {
         '': {
             'handlers': ['console'],
-            'level': 'DEBUG' if DEBUG else 'INFO',
+            'level': 'DEBUG',
             'propagate': True
         },
         'django': {
