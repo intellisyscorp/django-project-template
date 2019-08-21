@@ -105,7 +105,7 @@ LOGGING = {
     # Define a logger for your handler.  We are using the root '' logger in this case
     'loggers': {
         '': {
-            'handlers': ['console'],
+            'handlers': ['file_default', 'console'],
             'level': 'DEBUG',
             'propagate': True
         },
