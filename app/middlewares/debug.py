@@ -1,35 +1,39 @@
+import logging
 import pprint
-from datetime import datetime
+import traceback
 
 from django.db import connection
 
 
 def debug_middleware(get_response):
     def middleware(request):
-        print("[{}] {} {} | {}".format(
-            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            request.method,
-            request.get_full_path(),
-            getattr(request, 'user_id', None),
-        ))
+        # Skip debugging for swagger page
+        if 'swagger' in request.get_full_path():
+            return get_response(request)
 
-        print('>>> Request Headers')
+        logging.info('%s %s | %s', request.method, request.get_full_path(), getattr(request, 'user_id', None))
+
+        print('• Request Headers:')
         try:
-            pprint.pprint(dict(request.headers), indent=4)
-        except Exception as e:
-            print('\t' + str(e))
+            pprint.pprint(dict(request.headers or {}), indent=8)
+        except:
+            traceback.print_exc()
 
-        print(f'>>> # of Queries START: {len(connection.queries)}')
+        print('• DB Queries:')
+        print(f'\t# of Queries START: {len(connection.queries)}')
 
         response = get_response(request)
 
-        print(f'>>> # of Queries FINISH: {len(connection.queries)}')
+        print(f'\t# of Queries FINISH: {len(connection.queries)}')
 
-        print('>>> Response Data')
+        print('• List of %d DB Queries:' % len(connection.queries))
+        pprint.pprint(connection.queries)
+
+        print('• Response Data:')
         try:
-            pprint.pprint(dict(response.data), indent=4)
-        except Exception as e:
-            print('\t' + str(e))
+            pprint.pprint(dict(response.data or {}), indent=8)
+        except:
+            traceback.print_exc()
 
         return response
     return middleware
