@@ -1,5 +1,6 @@
-import logging
+import re
 import pprint
+import logging
 import traceback
 
 from django.db import connection
@@ -7,8 +8,8 @@ from django.db import connection
 
 def debug_middleware(get_response):
     def middleware(request):
-        # Skip debugging for swagger page
-        if 'swagger' in request.get_full_path():
+        # Skip debugging for admin/swagger pages
+        if re.search('(admin|swagger)', request.get_full_path()):
             return get_response(request)
 
         logging.info('%s %s | %s', request.method, request.get_full_path(), getattr(request, 'user_id', None))
