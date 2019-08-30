@@ -13,6 +13,12 @@ django-admin startproject \
 grep -rIl '{{ project_name }}' | xargs sed -i 's/{{ project_name }}/<<PROJECT_NAME>>/g'
 ```
 
+베이스 세팅에 있는 시크릿 키 설정해줘야 함
+``` bash
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.getenv("SECRET_KEY", "You must override it!!")
+```
+
 ## Includes
 - OWNERS 정보
 - Swagger 연동
