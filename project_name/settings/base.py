@@ -191,7 +191,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
 
-STATIC_URL = 'https://cdn.fitzme.xyz/static/'
+STATIC_URL = 'https://cdn.fitzme.co.kr/static/'
 
 # Microservice urls
 MICROSERVICE_URLS = {
