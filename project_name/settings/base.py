@@ -130,6 +130,7 @@ DATABASES = {
 
 # Django REST framework
 REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'app.exceptions.custom_exception_handler',
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
     'NON_FIELD_ERRORS_KEY': 'errors',
     'USE_X_FORWARDED_HOST': True,
