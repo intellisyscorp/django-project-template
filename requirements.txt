@@ -4,7 +4,7 @@ django
 django_ses
 django-redis
 django-modeladmin-reorder
-djangorestframework==3.9.3
+djangorestframework==3.11.2
 psycopg2-binary
 gunicorn
 drf-yasg
